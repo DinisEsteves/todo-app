@@ -1,11 +1,14 @@
 import React from 'react';
 import PageHeader from '../template/pageHeader';
+import Form from './form';
+import List from './list';
 
 const Todo = () => {
   return (
     <div>
       <PageHeader name='Todos' small='Login' />
-      <h1>Todo</h1>
+      <Form />
+      <List />
     </div>
   );
 };
