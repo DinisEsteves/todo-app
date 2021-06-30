@@ -1,4 +1,6 @@
 import React from 'react';
+//import { useHistory } from 'react-router';
+import {Link} from 'react-router-dom';
 
 const Menu = () =>{
   return(
@@ -10,10 +12,14 @@ const Menu = () =>{
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="todos">Todo's</a>
+            <Link className='nav-link' to='/todos'> 
+              Todos
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="about">About</a>
+            <Link className='nav-link' to='/about'> 
+              About
+            </Link>
           </li>
         </ul>
       </div>

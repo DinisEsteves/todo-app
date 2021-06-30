@@ -1,9 +1,10 @@
 import React from 'react';
+import PageHeader from '../template/pageHeader';
 
 const About = () => {
   return (
     <div>
-      <h1>About</h1>
+      <PageHeader name='About' small='Us' />
     </div>
   );
 };
