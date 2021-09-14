@@ -230,6 +230,107 @@ var Routes = function Routes() {
 
 /***/ }),
 
+/***/ "./resources/js/components/template/grid/grid.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/components/template/grid/grid.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function toCssClasses(numbers) {
+  var cols = numbers ? numbers.split(' ') : [];
+  var classes = '';
+  if (cols[0]) classes += "col-xs-".concat(cols[0]);
+  if (cols[1]) classes += " col-sm-".concat(cols[1]);
+  if (cols[2]) classes += " col-md-".concat(cols[2]);
+  if (cols[3]) classes += " col-lg-".concat(cols[3]);
+  return classes;
+}
+
+var Grid = function Grid(props) {
+  var gridClasses = toCssClasses(props.cols || 12);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: gridClasses,
+    children: props.children
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Grid);
+
+/***/ }),
+
+/***/ "./resources/js/components/template/grid/index.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/template/grid/index.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _grid__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./grid */ "./resources/js/components/template/grid/grid.jsx");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/template/iconButton/iconButton.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/template/iconButton/iconButton.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var IconButton = function IconButton(props) {
+  if (props.hidden) return null;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+    className: 'btn btn-' + props.style,
+    onClick: props.onClick,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+      className: 'fa fa-' + props.icon
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IconButton);
+
+/***/ }),
+
+/***/ "./resources/js/components/template/iconButton/index.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/template/iconButton/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _iconButton__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _iconButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./iconButton */ "./resources/js/components/template/iconButton/iconButton.jsx");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/template/menu/index.js":
 /*!********************************************************!*\
   !*** ./resources/js/components/template/menu/index.js ***!
@@ -375,31 +476,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _template_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../template/grid */ "./resources/js/components/template/grid/index.js");
+/* harmony import */ var _template_iconButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../template/iconButton */ "./resources/js/components/template/iconButton/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
 
 var Form = function Form() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     role: "form",
     className: "todoForm",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "col-xs-12 col-sm-9 col-md-10",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
+        cols: "12 9 10",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           id: "description",
           className: "form-control",
           placeholder: "Insert a new task"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "col-xs-12 col-sm-3 col-md-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-          className: "btn btn-primary",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
-            className: "fa fa-plus"
-          })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
+        cols: "12 3 2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+          style: "primary",
+          onClick: "",
+          icon: "plus"
         })
       })]
     })
