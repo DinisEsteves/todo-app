@@ -27,7 +27,7 @@ const Todo = () => {
     <div>
       <PageHeader name='Todos' small='Login' />
       <Form description={state.description} handleAdd={handleAdd} handleChange={handleChange}/>
-      <List />
+      <List items={state.list.data}/>
     </div>
   );
 };
