@@ -22,7 +22,7 @@ class CreateTodosTable extends Migration
         Schema::create($this->table, function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->boolean('finished');
+            $table->boolean('finished')->default(0);
             $table->timestamps();
         });
     }
