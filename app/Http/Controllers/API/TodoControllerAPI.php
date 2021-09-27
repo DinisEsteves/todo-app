@@ -68,8 +68,6 @@ class TodoControllerAPI extends Controller
      */
     public function destroy(Todo $todo)
     {
-        $this->authorize('delete', $todo);
-
         $todo->delete();
 
         return new TodoResource($todo);

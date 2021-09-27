@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 
 import PageHeader from '../template/pageHeader';
@@ -11,7 +11,7 @@ const Todo = () => {
   const [state, setState] = useState({'description' : '' , 'list' : []}) 
 
   const handleChange = (e) => {
-    setState({'description' : e.target.value , 'list' : []});
+    setState({'description' : e.target.value , 'list' : state.list});
   } 
 
   const handleAdd = () => {
@@ -19,17 +19,24 @@ const Todo = () => {
     axios.post(URL, {description}).then(resp => refresh())
   } 
 
-  const refresh = () => {
-      axios.get(URL).then(res => setState({'description' : '' , 'list' : res.data}));
+  const handleDelete = (item) => {
+   axios.delete(URL + '/' + item.id).then(resp => refresh())
   } 
+
+  const refresh = () => {
+    axios.get(URL).then(res => setState({'description' : '' , 'list' : res.data}));
+  } 
+
+  useEffect(() => {
+    refresh();
+  }, []);
 
   return (
     <div>
       <PageHeader name='Todos' small='Login' />
       <Form description={state.description} handleAdd={handleAdd} handleChange={handleChange}/>
-      <List items={state.list.data}/>
+      <List handleDelete={handleDelete} items={state.list.data}/>
     </div>
   );
 };
-
 export default Todo;
