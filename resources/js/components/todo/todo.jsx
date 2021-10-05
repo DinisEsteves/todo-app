@@ -20,7 +20,15 @@ const Todo = () => {
   } 
 
   const handleDelete = (item) => {
-   axios.delete(URL + '/' + item.id).then(resp => refresh())
+   axios.delete(`${URL}/${item.id}`).then(resp => refresh())
+  } 
+
+  const handleMarkAsFinished = (item) => {
+   axios.patch(`${URL}/${item.id}`, {...item, finished : 1}).then(resp => refresh())
+  }
+
+  const handleUnfinished = (item) => {
+   axios.patch(`${URL}/${item.id}`, {...item, finished : 0}).then(resp => refresh())
   } 
 
   const refresh = () => {
@@ -35,7 +43,7 @@ const Todo = () => {
     <div>
       <PageHeader name='Todos' small='Login' />
       <Form description={state.description} handleAdd={handleAdd} handleChange={handleChange}/>
-      <List handleDelete={handleDelete} items={state.list.data}/>
+      <List handleUnfinished={handleUnfinished} handleMarkAsFinished={handleMarkAsFinished} handleDelete={handleDelete} items={state.list.data}/>
     </div>
   );
 };

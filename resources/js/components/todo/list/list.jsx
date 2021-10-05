@@ -7,8 +7,10 @@ const List = (props) => {
     return list.map(todo => 
       (
       <tr key={todo.id}>
-        <td>{todo.description}</td>
+        <td className={todo.finished ? 'its-done' : ''}>{todo.description}</td>
         <td>
+         <IconButton style="success" icon="check" hide={todo.finished} onClick={() => props.handleMarkAsFinished(todo)}></IconButton>
+         <IconButton style="warning" icon="undo" hide={!todo.finished} onClick={() => props.handleUnfinished(todo)}></IconButton>
          <IconButton style="danger" icon="trash" onClick={() => props.handleDelete(todo)}></IconButton>
         </td>
       </tr>)

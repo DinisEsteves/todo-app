@@ -25,6 +25,7 @@ class TodoRequest extends FormRequest
     {
         return [
             'description' => ['required'],
+            'finished' => ['boolean'],
         ];
     }
 }
