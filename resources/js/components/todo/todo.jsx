@@ -41,7 +41,7 @@ const Todo = () => {
 
   return (
     <div>
-      <PageHeader name='Todos' small='Login' />
+      <PageHeader name="Todo's" small='List' />
       <Form description={state.description} handleAdd={handleAdd} handleChange={handleChange}/>
       <List handleUnfinished={handleUnfinished} handleMarkAsFinished={handleMarkAsFinished} handleDelete={handleDelete} items={state.list.data}/>
     </div>

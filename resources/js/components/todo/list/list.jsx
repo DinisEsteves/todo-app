@@ -7,8 +7,8 @@ const List = (props) => {
     return list.map(todo => 
       (
       <tr key={todo.id}>
-        <td className={todo.finished ? 'its-done' : ''}>{todo.description}</td>
-        <td>
+        <td className={todo.finished ? 'col-md-10 its-done' : 'col-md-10'}>{todo.description}</td>
+        <td className="col-md-2">
          <IconButton style="success" icon="check" hide={todo.finished} onClick={() => props.handleMarkAsFinished(todo)}></IconButton>
          <IconButton style="warning" icon="undo" hide={!todo.finished} onClick={() => props.handleUnfinished(todo)}></IconButton>
          <IconButton style="danger" icon="trash" onClick={() => props.handleDelete(todo)}></IconButton>
@@ -17,9 +17,9 @@ const List = (props) => {
     )
   }
   return (
-    <div className="row">
+    <div className="row mt-3">
       <div className="col-lg-12">
-        <table className="w-100">
+        <table className="w-100 table">
           <thead>
             <tr>
               <th>Description</th>
@@ -32,7 +32,6 @@ const List = (props) => {
         </table>
       </div>
     </div>
-   
   );
 };
 

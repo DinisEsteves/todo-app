@@ -2369,29 +2369,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Form = function Form(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    role: "form",
-    className: "todoForm",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
-        cols: "12 9 10",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          id: "description",
-          className: "form-control",
-          placeholder: "Insert a new task",
-          onChange: props.handleChange,
-          value: props.description
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
-        cols: "12 3 2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
-          style: "primary",
-          onClick: props.handleAdd,
-          icon: "plus"
-        })
-      })]
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "row",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
+      cols: "11 11 11 11",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        id: "description",
+        className: "form-control",
+        placeholder: "Insert a new task",
+        onChange: props.handleChange,
+        value: props.description
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
+      cols: "1 1 1 1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+        style: "primary",
+        onClick: props.handleAdd,
+        icon: "plus"
+      })
+    })]
   });
 };
 
@@ -2472,9 +2468,10 @@ var List = function List(props) {
     return list.map(function (todo) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-          className: todo.finished ? 'its-done' : '',
+          className: todo.finished ? 'col-md-10 its-done' : 'col-md-10',
           children: todo.description
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("td", {
+          className: "col-md-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_1__.default, {
             style: "success",
             icon: "check",
@@ -2502,11 +2499,11 @@ var List = function List(props) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "row",
+    className: "row mt-3",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "col-lg-12",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
-        className: "w-100",
+        className: "w-100 table",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("thead", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
@@ -2633,8 +2630,8 @@ var Todo = function Todo() {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_template_pageHeader__WEBPACK_IMPORTED_MODULE_2__.default, {
-      name: "Todos",
-      small: "Login"
+      name: "Todo's",
+      small: "List"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_form__WEBPACK_IMPORTED_MODULE_3__.default, {
       description: state.description,
       handleAdd: handleAdd,
