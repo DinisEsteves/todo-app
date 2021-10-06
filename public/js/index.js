@@ -2253,12 +2253,12 @@ __webpack_require__.r(__webpack_exports__);
 var Menu = function Menu() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
     className: "navbar navbar-expand-lg navbar-light bg-light",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
       className: "navbar-brand",
       href: "/#",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
         className: "fa fa-calendar"
-      }), " TodoApp"]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
       className: "navbar-toggler",
       type: "button",
@@ -2372,7 +2372,7 @@ var Form = function Form(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "row",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
-      cols: "11 11 11 11",
+      cols: "10 10 10 10",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "description",
         className: "form-control",
@@ -2380,13 +2380,17 @@ var Form = function Form(props) {
         onChange: props.handleChange,
         value: props.description
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
-      cols: "1 1 1 1",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
+      cols: "2 2 2 2",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
         style: "primary",
-        onClick: props.handleAdd,
-        icon: "plus"
-      })
+        icon: "plus",
+        onClick: props.handleAdd
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+        style: "secondary",
+        icon: "search",
+        onClick: props.handleSearch
+      })]
     })]
   });
 };
@@ -2616,10 +2620,15 @@ var Todo = function Todo() {
     });
   };
 
+  var handleSearch = function handleSearch() {
+    refresh(state.description);
+  };
+
   var refresh = function refresh() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get(URL).then(function (res) {
+    var description = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(URL, "/?description=").concat(description)).then(function (res) {
       return setState({
-        'description': '',
+        'description': description,
         'list': res.data
       });
     });
@@ -2629,11 +2638,9 @@ var Todo = function Todo() {
     refresh();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_template_pageHeader__WEBPACK_IMPORTED_MODULE_2__.default, {
-      name: "Todo's",
-      small: "List"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_form__WEBPACK_IMPORTED_MODULE_3__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_template_pageHeader__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_form__WEBPACK_IMPORTED_MODULE_3__.default, {
       description: state.description,
+      handleSearch: handleSearch,
       handleAdd: handleAdd,
       handleChange: handleChange
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_list__WEBPACK_IMPORTED_MODULE_4__.default, {

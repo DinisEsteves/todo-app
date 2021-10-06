@@ -31,8 +31,12 @@ const Todo = () => {
    axios.patch(`${URL}/${item.id}`, {...item, finished : 0}).then(resp => refresh())
   } 
 
-  const refresh = () => {
-    axios.get(URL).then(res => setState({'description' : '' , 'list' : res.data}));
+  const handleSearch = () => {
+    refresh(state.description);
+   } 
+
+  const refresh = (description = '') => {
+    axios.get(`${URL}/?description=${description}`).then(res => setState({'description' : description , 'list' : res.data}));
   } 
 
   useEffect(() => {
@@ -41,8 +45,8 @@ const Todo = () => {
 
   return (
     <div>
-      <PageHeader name="Todo's" small='List' />
-      <Form description={state.description} handleAdd={handleAdd} handleChange={handleChange}/>
+      <PageHeader/>
+      <Form description={state.description} handleSearch={handleSearch} handleAdd={handleAdd} handleChange={handleChange}/>
       <List handleUnfinished={handleUnfinished} handleMarkAsFinished={handleMarkAsFinished} handleDelete={handleDelete} items={state.list.data}/>
     </div>
   );
