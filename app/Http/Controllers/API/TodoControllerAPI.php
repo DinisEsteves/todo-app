@@ -7,6 +7,7 @@ use App\Http\Resources\TodoResource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoRequest;
 use App\Http\Resources\Collections\TodoCollection;
+use App\Http\Filters\TodoFilters;
 
 class TodoControllerAPI extends Controller
 {
@@ -15,9 +16,10 @@ class TodoControllerAPI extends Controller
      *
      * @return App\Http\Resources\Collections\TodoCollection
      */
-    public function index()
+    public function index(TodoFilters $filter)
     {
-        $todo = Todo::all();
+        $todo = Todo::filter($filter)->get();
+
 
         return new TodoCollection($todo);
     }
