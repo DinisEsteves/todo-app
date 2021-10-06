@@ -2179,17 +2179,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var IconButton = function IconButton(props) {
   var todoId = props.id || null;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_helpers_if__WEBPACK_IMPORTED_MODULE_1__.default, {
     hide: props.hide,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
       id: todoId,
       className: 'btn btn-' + props.style,
       onClick: props.onClick,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
         className: 'fa fa-' + props.icon
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+        children: [" ", props.text]
+      })]
     })
   });
 };
@@ -2372,7 +2375,7 @@ var Form = function Form(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "row",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
-      cols: "10 10 10 10",
+      cols: "8 8 8 8",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "description",
         className: "form-control",
@@ -2381,7 +2384,7 @@ var Form = function Form(props) {
         value: props.description
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_template_grid__WEBPACK_IMPORTED_MODULE_1__.default, {
-      cols: "2 2 2 2",
+      cols: "4 4 4 4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
         style: "primary",
         icon: "plus",
@@ -2390,6 +2393,11 @@ var Form = function Form(props) {
         style: "secondary",
         icon: "search",
         onClick: props.handleSearch
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_template_iconButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+        style: "secondary",
+        icon: "times",
+        text: "clean",
+        onClick: props.handleCleanForm
       })]
     })]
   });
@@ -2624,6 +2632,10 @@ var Todo = function Todo() {
     refresh(state.description);
   };
 
+  var handleCleanForm = function handleCleanForm() {
+    refresh();
+  };
+
   var refresh = function refresh() {
     var description = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(URL, "/?description=").concat(description)).then(function (res) {
@@ -2640,6 +2652,7 @@ var Todo = function Todo() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_template_pageHeader__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_form__WEBPACK_IMPORTED_MODULE_3__.default, {
       description: state.description,
+      handleCleanForm: handleCleanForm,
       handleSearch: handleSearch,
       handleAdd: handleAdd,
       handleChange: handleChange

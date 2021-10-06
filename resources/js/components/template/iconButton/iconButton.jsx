@@ -7,6 +7,7 @@ const IconButton = (props) => {
         <If hide={props.hide}> 
             <button id={todoId} className={'btn btn-'+props.style} onClick={props.onClick}>
                 <i className={'fa fa-'+props.icon}></i>
+                <span> {props.text}</span>
             </button>
         </If>
     );

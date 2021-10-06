@@ -35,6 +35,10 @@ const Todo = () => {
     refresh(state.description);
    } 
 
+  const handleCleanForm = () => {
+    refresh();
+   } 
+
   const refresh = (description = '') => {
     axios.get(`${URL}/?description=${description}`).then(res => setState({'description' : description , 'list' : res.data}));
   } 
@@ -46,7 +50,7 @@ const Todo = () => {
   return (
     <div>
       <PageHeader/>
-      <Form description={state.description} handleSearch={handleSearch} handleAdd={handleAdd} handleChange={handleChange}/>
+      <Form description={state.description} handleCleanForm={handleCleanForm} handleSearch={handleSearch} handleAdd={handleAdd} handleChange={handleChange}/>
       <List handleUnfinished={handleUnfinished} handleMarkAsFinished={handleMarkAsFinished} handleDelete={handleDelete} items={state.list.data}/>
     </div>
   );
