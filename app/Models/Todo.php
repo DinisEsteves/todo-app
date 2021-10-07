@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Http\Filters\QueryFilter;
+use App\Http\Traits\IsFiltrable;
 
 class Todo extends Model
 {
-    use HasFactory;
+    use HasFactory,IsFiltrable;
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +19,4 @@ class Todo extends Model
         'description',
         'finished'
     ];
-
-    public function scopeFilter($query, QueryFilter $filters){
-        return $filters->apply($query);
-    }
 }
